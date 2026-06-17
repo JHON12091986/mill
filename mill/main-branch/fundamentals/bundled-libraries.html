@@ -797,7 +797,7 @@ as part of its <a href="../depth/sandboxing.html" class="xref page">Mill Sandbox
 interference between tasks:</p>
 </div>
 <div class="listingblock">
-<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-4-6ad6f1/mill-dist-1.2.0-RC1-example-fundamentals-libraries-1-oslib.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/1-oslib">browse</a>)</div>
+<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-7-42a8fe/mill-dist-1.2.0-RC1-example-fundamentals-libraries-1-oslib.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/1-oslib">browse</a>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import mill.*
 
@@ -830,49 +830,59 @@ without conflict</p>
 <div class="sect2">
 <h3 id="_os_lib_path_serialization"><a class="anchor" href="#_os_lib_path_serialization"></a>Path Serialization</h3>
 <div class="paragraph">
-<p>Mill configures OS-Lib&#8217;s <code>os.Path</code> string serialization so paths under your
-workspace and home directory are written using reproducible aliases such as
-<code>../mill-workspace</code> and <code>../mill-home</code>, or <code>out/mill-workspace</code> when the
-subprocess working directory is the workspace root. This affects APIs such as
-<code>os.Path.toString</code>, <code>os.Path.toIO</code>, <code>os.Path.toNIO</code>, and values such as
-<code>PathRef</code> that include an <code>os.Path</code> in their JSON representation.</p>
+<p>Task return values are cached as JSON, so any <code>os.Path</code>/<code>PathRef</code> in them is
+serialized to a string. To keep <code>out/</code> independent of where the build lives on disk
+(so caches stay portable and can feed a <a href="../large/remote-caching.html" class="xref page">remote cache</a>),
+Mill rewrites paths under the workspace or home directory as relative aliases&#8201;&#8212;&#8201;<code>../mill-workspace/&#8230;&#8203;</code> and <code>../mill-home/&#8230;&#8203;</code>&#8201;&#8212;&#8201;and plants matching forwarder
+symlinks so they resolve back to the real files. This affects <code>os.Path.toString</code>,
+<code>.toIO</code>, <code>.toNIO</code>, and any serialized <code>os.Path</code>/<code>PathRef</code>. Within a task you never
+notice it: the aliases round-trip transparently.</p>
 </div>
+<div class="sect3">
+<h4 id="_when_to_reach_for_custom_serialization"><a class="anchor" href="#_when_to_reach_for_custom_serialization"></a>When to reach for custom serialization</h4>
 <div class="paragraph">
-<p>This keeps task outputs, cache keys, and generated JSON independent of the
-absolute checkout location and user home directory. Mill creates the matching
-alias symlinks around task and subprocess working directories, so these paths
-can still be resolved when they are used in the expected Mill context.</p>
+<p>An alias only resolves from a cwd where Mill planted its forwarders, which it does for
+just three cwd shapes: task <code>.dest</code> folders and the run sandbox (which use <code>../mill-<strong></code>),
+and the workspace root (which uses <code>out/mill-</strong></code>, since <code>../mill-<strong></code> would escape the
+workspace). So when serializing a path for a subprocess, the correct string depends on
+*that subprocess&#8217;s</strong> cwd, not the current task&#8217;s, and plain <code>.toString</code> is often wrong.
+Pick the <code>PathRef.to*</code> helper for where the subprocess runs and what it accepts:</p>
 </div>
-<div class="paragraph">
-<p>If you need more explicit control over how a path is serialized, use the
-<code>PathRef.to*</code> helpers rather than calling <code>.toString</code> directly:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>PathRef.toRelString(path, subprocessCwd)</code> formats a path using Mill&#8217;s
-reproducible aliases relative to the working directory of a subprocess. Use
-this for command-line arguments, environment variables, or config files that
-are consumed by a subprocess that will run from <code>subprocessCwd</code> and can accept
-relative paths.</p>
-</li>
-<li>
-<p><code>PathRef.toAbsString(path)</code>, <code>PathRef.toAbsFile(path)</code>, and
-<code>PathRef.toAbsNioPath(path)</code> bypass OS-Lib&#8217;s relativizing serializer and return
-real absolute paths. Use these for Java APIs or external tools that require
-absolute paths, or for processes that do not run with Mill&#8217;s path aliases.</p>
-</li>
-<li>
-<p><code>PathRef.toResolvedPathString(path)</code> and <code>PathRef.toResolvedOsPath(path)</code>
-resolve symlinks when the path exists before serializing it. Use these when a
-long-lived process or tool needs the real on-disk location rather than a
-lexical path that may pass through a Mill alias symlink.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Prefer the reproducible <code>toRelString</code> form when it is accepted by the consumer.
-Use the absolute or resolved forms only where the consumer requires that style.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>PathRef.toRelString(path, subprocessCwd)</code></dt>
+<dd>
+<p>The reproducible form: serializes <code>path</code> using the alias scheme valid at
+<code>subprocessCwd</code> (<code>out/mill-<strong></code> at the workspace root, <code>../mill-</strong></code> in a <code>.dest</code>/sandbox),
+falling back to an absolute path when <code>subprocessCwd</code> has no forwarders. This is the
+only custom form that stays reproducible (it never bakes in an absolute path), so
+prefer it whenever the subprocess runs in a directory Mill aliases and accepts relative
+paths. Reach for it specifically when
+the subprocess&#8217;s cwd differs from the current task&#8217;s&#8201;&#8212;&#8201;most commonly a tool you spawn
+at the <strong>workspace root</strong>, whose <code>out/mill-<strong></code> aliases differ from the task&#8217;s <code>../mill-</strong></code>,
+so the default <code>.toString</code> would be wrong. (<code>workspaceRoot</code> is the default
+<code>subprocessCwd</code>, matching that common case.)</p>
+</dd>
+<dt class="hdlist1"><code>PathRef.toAbsString(path)</code> / <code>PathRef.toAbsFile(path)</code> / <code>PathRef.toAbsNioPath(path)</code></dt>
+<dd>
+<p>The <strong>lexically</strong> absolute path&#8201;&#8212;&#8201;made absolute and <code>..</code>-normalized textually, without
+touching the disk, so any symlinks are left intact&#8201;&#8212;&#8201;as a <code>String</code>, <code>java.io.File</code>, or
+<code>java.nio.file.Path</code>. Use these when the subprocess runs in some directory Mill does not
+alias (so a relative alias can&#8217;t resolve there), or treats relative and absolute paths
+differently (resolving relatives against a base other than its cwd, or accepting only
+absolute paths).</p>
+</dd>
+<dt class="hdlist1"><code>PathRef.toResolvedPathString(path)</code> / <code>PathRef.toResolvedOsPath(path)</code></dt>
+<dd>
+<p>The same, but additionally run through <code>toRealPath</code>, so symlinks are <strong>followed</strong> to the
+canonical on-disk location. The difference from the <code>toAbs*</code> forms only shows up when
+the path traverses a symlink&#8201;&#8212;&#8201;one of Mill&#8217;s <code>mill-*</code> forwarders, or an OS symlink like
+macOS&#8217;s <code>/tmp</code> &#8594; <code>/private/tmp</code>&#8201;&#8212;&#8201;and the consumer canonicalizes paths itself (e.g.
+Node&#8217;s module resolution or <code>native-image</code>) or you compare two paths for equality; a
+merely-lexical absolute path would still contain the symlink and mismatch the real one.
+Falls back to the lexical absolute form when the path doesn&#8217;t exist on disk.</p>
+</dd>
+</dl>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -881,6 +891,7 @@ Use the absolute or resolved forms only where the consumer requires that style.<
 hello
 .../out/task2.dest/file.txt
 world</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -931,7 +942,7 @@ need to be recomputed</p>
 collections types (<code>Seq</code>s, <code>List</code>s, <code>Tuple</code>s, etc.) are serializable by default.</p>
 </div>
 <div class="listingblock">
-<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-4-6ad6f1/mill-dist-1.2.0-RC1-example-fundamentals-libraries-2-upickle.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/2-upickle">browse</a>)</div>
+<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-7-42a8fe/mill-dist-1.2.0-RC1-example-fundamentals-libraries-2-upickle.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/2-upickle">browse</a>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import mill.*
 
@@ -1064,7 +1075,7 @@ are downloaded once and cached for later use.</p>
 compile the Remote APIs source code as part of our build:</p>
 </div>
 <div class="listingblock">
-<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-4-6ad6f1/mill-dist-1.2.0-RC1-example-fundamentals-libraries-3-requests.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/3-requests">browse</a>)</div>
+<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-7-42a8fe/mill-dist-1.2.0-RC1-example-fundamentals-libraries-3-requests.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/3-requests">browse</a>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import mill.*
 
@@ -1197,7 +1208,7 @@ servers, and so on. So this works out surprisingly well in practice.</p>
 are run from the command line.</p>
 </div>
 <div class="listingblock">
-<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-4-6ad6f1/mill-dist-1.2.0-RC1-example-fundamentals-libraries-4-mainargs.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/4-mainargs">browse</a>)</div>
+<div class="title">build.mill (<a href="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.2.0-RC1-7-42a8fe/mill-dist-1.2.0-RC1-example-fundamentals-libraries-4-mainargs.zip">download</a>, <a href="https://github.com/com-lihaoyi/mill/blob/1.2.0-RC1/example/fundamentals/libraries/4-mainargs">browse</a>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import mill.*
 
