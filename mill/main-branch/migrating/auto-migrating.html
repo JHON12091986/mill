@@ -781,6 +781,12 @@ or <code>SbtModule</code>. A nested <code>test</code> module is defined, if <cod
 with a supported <a href="../javalib/testing.html" class="xref page">test framework</a>, if found.</p>
 </div>
 <div class="paragraph">
+<p><code>mill init</code> also detects common application frameworks and wires up the corresponding
+Mill module: <a href="../javalib/spring-boot.html" class="xref page">Spring Boot</a> projects are configured with
+<code>SpringBootModule</code>, and <a href="../javalib/web-examples.html#_quarkus_example" class="xref page">Quarkus</a> projects
+with <code>QuarkusModule</code>.</p>
+</div>
+<div class="paragraph">
 <p>Again, note that <code>mill init</code> importing Maven builds is best-effort.
 This means that while small projects can be expected to complete without issue:</p>
 </div>
