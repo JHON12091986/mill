@@ -3415,6 +3415,7 @@ pages = [{"l":"index.html#","e":false,"i":"","n":"Mill","t":"Mill","d":"","k":"s
 {"l":"mill/javalib/quarkus/QuarkusModule$QuarkusTests.html#","e":false,"i":"","n":"QuarkusTests","t":"QuarkusTests extends QuarkusModule, JavaTests","d":"mill.javalib.quarkus.QuarkusModule","k":"trait","x":""},
 {"l":"mill/javalib/quarkus/QuarkusModule$QuarkusTests.html#quarkusSerializedAppModelJavaOpts-0","e":false,"i":"","n":"quarkusSerializedAppModelJavaOpts","t":"quarkusSerializedAppModelJavaOpts: Simple[Seq[String]]","d":"mill.javalib.quarkus.QuarkusModule.QuarkusTests","k":"def","x":""},
 {"l":"mill/javalib/repackage.html#","e":false,"i":"","n":"mill.javalib.repackage","t":"mill.javalib.repackage","d":"","k":"package","x":""},
+{"l":"mill/javalib/repackage/RepackageModule$.html#","e":false,"i":"","n":"RepackageModule","t":"RepackageModule extends ExternalModule","d":"mill.javalib.repackage","k":"object","x":""},
 {"l":"mill/javalib/repackage/RepackageModule.html#","e":false,"i":"","n":"RepackageModule","t":"RepackageModule extends Module","d":"mill.javalib.repackage","k":"trait","x":""},
 {"l":"mill/javalib/repackage/RepackageModule.html#repackageBaseJar-0","e":false,"i":"","n":"repackageBaseJar","t":"repackageBaseJar: Simple[PathRef]","d":"mill.javalib.repackage.RepackageModule","k":"def","x":""},
 {"l":"mill/javalib/repackage/RepackageModule.html#repackageMainClass-0","e":false,"i":"","n":"repackageMainClass","t":"repackageMainClass: Simple[String]","d":"mill.javalib.repackage.RepackageModule","k":"def","x":""},
