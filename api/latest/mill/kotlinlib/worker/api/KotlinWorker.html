@@ -94,12 +94,12 @@ node4 -> node0;
          <button class="icon-button show-content expand"></button>
          <h4 class="groupHeader h200">Abstract methods</h4>
         </div>
-        <div class="documentableElement" id="compile-17b">
+        <div class="documentableElement" id="compile-fffffae6">
          <div class="documentableElement-expander">
           <button class="icon-button ar show-content"></button>
           <div class="header monospace mono-medium">
            <div class="signature">
-            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="KotlinWorker.html#compile-17b" t="n" class="documentableName ">compile</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">target</span>: <a href="KotlinWorkerTarget.html" t="t">KotlinWorkerTarget</a>, <span t="k"></span><span data-unresolved-link="" t="n">useBtApi</span>: <span data-unresolved-link="" t="t">Boolean</span>, <span t="k"></span><span data-unresolved-link="" t="n">args</span>: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">String</span>], <span t="k"></span><span data-unresolved-link="" t="n">sources</span>: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">Path</span>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">ctx</span>: <a href="../../../api/TaskCtx.html" t="t">TaskCtx</a>): <a href="../../../api/daemon/Result.html" t="t">Result</a>[<span data-unresolved-link="" t="t">Unit</span>]
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="KotlinWorker.html#compile-fffffae6" t="n" class="documentableName ">compile</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">target</span>: <a href="KotlinWorkerTarget.html" t="t">KotlinWorkerTarget</a>, <span t="k"></span><span data-unresolved-link="" t="n">useBtApi</span>: <span data-unresolved-link="" t="t">Boolean</span>, <span t="k"></span><span data-unresolved-link="" t="n">args</span>: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">String</span>], <span t="k"></span><span data-unresolved-link="" t="n">sources</span>: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">Path</span>], <span t="k"></span><span data-unresolved-link="" t="n">classpath</span>: <span data-unresolved-link="" t="t">Seq</span>[<a href="../../../api/PathRef.html" t="t">PathRef</a>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">ctx</span>: <a href="../../../api/TaskCtx.html" t="t">TaskCtx</a>): <a href="../../../api/daemon/Result.html" t="t">Result</a>[<span data-unresolved-link="" t="t">Unit</span>]
            </div>
           </div>
          </div>
@@ -108,8 +108,40 @@ node4 -> node0;
           <div>
            <div class="originInfo"></div>
            <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Compile the given sources.</p>
+            </div>
             <div class="cover">
-             <div class="doc"></div>
+             <div class="doc">
+              <p>Compile the given sources.</p>
+             </div>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               args
+              </dt>
+              <dd class="body-medium">
+               <p>Compiler arguments.</p>
+              </dd>
+              <dt class="body-small">
+               classpath
+              </dt>
+              <dd class="body-medium">
+               <p>Compilation classpath, useful for incremental compilation.</p>
+              </dd>
+              <dt class="body-small">
+               sources
+              </dt>
+              <dd class="body-medium">
+               <p>Source files to compile.</p>
+              </dd>
+              <dt class="body-small">
+               useBtApi
+              </dt>
+              <dd class="body-medium">
+               <p>Whether to use the Build Tools API. Only relevant for <a href="KotlinWorkerTarget$$Jvm$.html">KotlinWorkerTarget.Jvm</a>.</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
               <dt class="body-small">

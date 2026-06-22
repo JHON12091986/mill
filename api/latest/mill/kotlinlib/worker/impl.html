@@ -145,7 +145,7 @@
           <button class="icon-button ar show-content"></button>
           <div class="header monospace mono-medium">
            <div class="signature">
-            <span class="signature-short"><span class="modifiers"></span><span class="kind"><span t="k">class </span></span><a href="impl/JvmCompileBtApiImpl.html" t="n" class="documentableName ">JvmCompileBtApiImpl</a>(<span t="k"></span>)<span t="k"> extends </span><a href="impl/Compiler.html" t="t">Compiler</a></span><span class="signature-long"></span>
+            <span class="signature-short"><span class="modifiers"></span><span class="kind"><span t="k">class </span></span><a href="impl/JvmCompileBtApiImpl.html" t="n" class="documentableName ">JvmCompileBtApiImpl</a>(<span t="k"></span><span t="k">val </span><span data-unresolved-link="" t="n">classpathSnapshotCache</span>: <span data-unresolved-link="" t="t">Path</span>)<span t="k"> extends </span><a href="impl/Compiler.html" t="t">Compiler</a></span><span class="signature-long"></span>
            </div>
           </div>
          </div>
@@ -156,6 +156,15 @@
            <div class="memberDocumentation">
             <div class="cover">
              <div class="doc"></div>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               classpathSnapshotCache
+              </dt>
+              <dd class="body-medium">
+               <p>The path to store classpath snapshots for incremental compilation. Should live longer than the compile task itself, i.e. within a Worker or a persistent task.</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
               <dt class="body-small">
@@ -243,7 +252,7 @@
           <button class="icon-button ar show-content"></button>
           <div class="header monospace mono-medium">
            <div class="signature">
-            <span class="signature-short"><span class="modifiers"></span><span class="kind"><span t="k">class </span></span><a href="impl/KotlinWorkerImpl.html" t="n" class="documentableName ">KotlinWorkerImpl</a><span t="k"> extends </span><a href="api/KotlinWorker.html" t="t">KotlinWorker</a></span><span class="signature-long"></span>
+            <span class="signature-short"><span class="modifiers"></span><span class="kind"><span t="k">class </span></span><a href="impl/KotlinWorkerImpl.html" t="n" class="documentableName ">KotlinWorkerImpl</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">classpathSnapshotCache</span>: <span data-unresolved-link="" t="t">Path</span>)<span t="k"> extends </span><a href="api/KotlinWorker.html" t="t">KotlinWorker</a></span><span class="signature-long"></span>
            </div>
           </div>
          </div>
