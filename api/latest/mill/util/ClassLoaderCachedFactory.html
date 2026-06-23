@@ -150,7 +150,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
               </dd>
              </dl>
             </div>
@@ -167,44 +167,6 @@ node9 -> node0;
       <div class="member-group-header">
        <h3 data-togglable="Value members" class="h400">Value members</h3>
       </div>
-      <section id="Abstract-methods">
-       <div class="documentableList expand">
-        <div class="documentableList-expander">
-         <button class="icon-button show-content expand"></button>
-         <h4 class="groupHeader h200">Abstract methods</h4>
-        </div>
-        <div class="documentableElement" id="getValue-fffff56a">
-         <div class="documentableElement-expander">
-          <button class="icon-button ar show-content"></button>
-          <div class="header monospace mono-medium">
-           <div class="signature">
-            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="ClassLoaderCachedFactory.html#getValue-fffff56a" t="n" class="documentableName ">getValue</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">cl</span>: <span data-unresolved-link="" t="t">ClassLoader</span>): <span t="t">T</span>
-           </div>
-          </div>
-         </div>
-         <div class="docs">
-          <span class="modifiers"></span>
-          <div>
-           <div class="originInfo"></div>
-           <div class="memberDocumentation">
-            <div class="cover">
-             <div class="doc"></div>
-             <h2 class="h200">Attributes</h2>
-             <dl class="attributes attributes-small">
-              <dt class="body-small">
-               Source
-              </dt>
-              <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/util/src/mill/util/ClassLoaderCachedFactory.scala" target="_blank">ClassLoaderCachedFactory.scala</a>
-              </dd>
-             </dl>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-      </section>
       <section id="Concrete-methods">
        <div class="documentableList expand">
         <div class="documentableList-expander">
@@ -237,6 +199,36 @@ node9 -> node0;
                 <a href="CachedFactoryBase.html">CachedFactoryBase</a> -&gt; <span data-unresolved-link="">AutoCloseable</span>
                </div>
               </dd>
+              <dt class="body-small">
+               Source
+              </dt>
+              <dd class="body-medium">
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/util/src/mill/util/ClassLoaderCachedFactory.scala" target="_blank">ClassLoaderCachedFactory.scala</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="getValue-755">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="ClassLoaderCachedFactory.html#getValue-755" t="n" class="documentableName ">getValue</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">cachedClassLoader</span>: <span data-unresolved-link="" t="t">ClassLoader</span>, <span t="k"></span><span data-unresolved-link="" t="n">classpath</span>: <span data-unresolved-link="" t="t">Seq</span>[<a href="../api/PathRef.html" t="t">PathRef</a>]): <span t="t">T</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
               <dt class="body-small">
                Source
               </dt>
@@ -370,6 +362,50 @@ node9 -> node0;
         </div>
        </div>
       </section>
+      <section id="Deprecated-methods">
+       <div class="documentableList expand">
+        <div class="documentableList-expander">
+         <button class="icon-button show-content expand"></button>
+         <h4 class="groupHeader h200">Deprecated methods</h4>
+        </div>
+        <div class="documentableElement" id="getValue-fffff56a">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="ClassLoaderCachedFactory.html#getValue-fffff56a" t="n" class="documentableName deprecated">getValue</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">cl</span>: <span data-unresolved-link="" t="t">ClassLoader</span>): <span t="t">T</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Deprecated
+              </dt>
+              <dd class="body-medium">
+               <code>[Since version Mill after 1.2.0-RC1] </code>Use getValue(ClassLoader, Seq[PathRef]) instead
+              </dd>
+              <dt class="body-small">
+               Source
+              </dt>
+              <dd class="body-medium">
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/util/src/mill/util/ClassLoaderCachedFactory.scala" target="_blank">ClassLoaderCachedFactory.scala</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
       <section id="Inherited-methods">
        <div class="documentableList expand">
         <div class="documentableList-expander">
@@ -417,7 +453,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -459,7 +495,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -500,7 +536,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
               </dd>
              </dl>
             </div>
@@ -541,7 +577,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -588,7 +624,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
               </dd>
              </dl>
             </div>
@@ -629,7 +665,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
               </dd>
              </dl>
             </div>
@@ -665,7 +701,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -706,7 +742,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -747,7 +783,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -788,7 +824,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -824,7 +860,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactory.scala" target="_blank">CachedFactory.scala</a>
               </dd>
              </dl>
             </div>
@@ -865,7 +901,7 @@ node9 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/74bdb07d/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/db4d1e63/mill-workspace/libs/util/java11/src/mill/util/CachedFactoryBase.scala" target="_blank">CachedFactoryBase.scala</a>
               </dd>
              </dl>
             </div>
@@ -880,4 +916,4 @@ node9 -> node0;
    </div>
   </div>
  </div>
-</section></div><div id="toc" class="body-small"><div id="toc-container"><span class="toc-title h200">In this article</span><nav class="toc-nav"><ul class="toc-list"><li><a href="#attributes">Attributes</a></li><li><a href="#members-list">Members list</a><ul><li><a href="#Type-members">Type members</a><ul><li><a href="#Inherited-types">Inherited types</a></li></ul></li><li><a href="#Value-members">Value members</a><ul><li><a href="#Abstract-methods">Abstract methods</a></li><li><a href="#Concrete-methods">Concrete methods</a></li><li><a href="#Inherited-methods">Inherited methods</a></li></ul></li></ul></li></ul></nav></div></div></div><div id="footer" class="body-small mobile-footer"><div class="left-container">Generated with</div><div class="right-container"><div class="text"></div></div><div class="text-mobile"></div></div></div></div></body></html>
+</section></div><div id="toc" class="body-small"><div id="toc-container"><span class="toc-title h200">In this article</span><nav class="toc-nav"><ul class="toc-list"><li><a href="#attributes">Attributes</a></li><li><a href="#members-list">Members list</a><ul><li><a href="#Type-members">Type members</a><ul><li><a href="#Inherited-types">Inherited types</a></li></ul></li><li><a href="#Value-members">Value members</a><ul><li><a href="#Concrete-methods">Concrete methods</a></li><li><a href="#Deprecated-methods">Deprecated methods</a></li><li><a href="#Inherited-methods">Inherited methods</a></li></ul></li></ul></li></ul></nav></div></div></div><div id="footer" class="body-small mobile-footer"><div class="left-container">Generated with</div><div class="right-container"><div class="text"></div></div><div class="text-mobile"></div></div></div></div></body></html>
