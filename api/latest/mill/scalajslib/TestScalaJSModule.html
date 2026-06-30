@@ -3546,7 +3546,7 @@ node39 -> node0;
                Source
               </dt>
               <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/1dd9c785/mill-workspace/core/api/daemon/src/mill/api/daemon/internal/bsp/BspModuleApi.scala" target="_blank">BspModuleApi.scala</a>
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/out/mill-no-daemon/3ad5fb26/mill-workspace/core/api/daemon/src/mill/api/daemon/internal/bsp/BspModuleApi.scala" target="_blank">BspModuleApi.scala</a>
               </dd>
              </dl>
             </div>
@@ -7723,61 +7723,6 @@ node39 -> node0;
           </div>
          </div>
         </div>
-        <div class="documentableElement" id="scalaJSExperimentalUseWebAssembly-0" data-f-inherited="ScalaJSModule">
-         <div class="documentableElement-expander">
-          <button class="icon-button ar show-content"></button>
-          <div class="header monospace mono-medium">
-           <div class="signature">
-            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="TestScalaJSModule.html#scalaJSExperimentalUseWebAssembly-0" t="n" class="documentableName ">scalaJSExperimentalUseWebAssembly</a>: <a href="../api/Task$$Simple.html" t="t">Simple</a>[<span data-unresolved-link="" t="t">Boolean</span>]
-           </div>
-          </div>
-         </div>
-         <div class="docs">
-          <span class="modifiers"></span>
-          <div>
-           <div class="originInfo"></div>
-           <div class="memberDocumentation">
-            <div class="documentableBrief doc">
-             <p>Specifies whether to use the experimental WebAssembly backend. Requires scalaJS &gt; 1.17.0 When using this setting, the following properties must also hold:</p>
-            </div>
-            <div class="cover">
-             <div class="doc">
-              <p>Specifies whether to use the experimental WebAssembly backend. Requires scalaJS &gt; 1.17.0 When using this setting, the following properties must also hold:</p>
-              <ul>
-               <li><code>moduleKind = ModuleKind.ESModule</code></li>
-               <li><code>moduleSplitStyle = ModuleSplitStyle.FewestModules</code></li>
-              </ul>
-             </div>
-             <h2 class="h200">Attributes</h2>
-             <dl class="attributes attributes-small">
-              <dt class="body-small">
-               Note
-              </dt>
-              <dd class="body-medium">
-               <div>
-                <div>
-                 <p>Currently, the WebAssembly backend silently ignores <code>@JSExport</code> and <code>@JSExportAll</code> annotations. This behavior may change in the future, either by making them warnings or errors, or by adding support for them. All other language features are supported.</p>
-                </div>
-               </div>
-              </dd>
-              <dt class="body-small">
-               Inherited from:
-              </dt>
-              <dd class="body-medium">
-               <a href="ScalaJSModule.html#scalaJSExperimentalUseWebAssembly-0">ScalaJSModule</a>
-              </dd>
-              <dt class="body-small">
-               Source
-              </dt>
-              <dd class="body-medium">
-               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/scalajslib/src/mill/scalajslib/ScalaJSModule.scala" target="_blank">ScalaJSModule.scala</a>
-              </dd>
-             </dl>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
         <div class="documentableElement" id="scalaJSImportMap-0" data-f-inherited="ScalaJSModule">
          <div class="documentableElement-expander">
           <button class="icon-button ar show-content"></button>
@@ -8070,6 +8015,103 @@ node39 -> node0;
               </dt>
               <dd class="body-medium">
                <a href="ScalaJSModule.html#scalaJSToolsClasspath-0">ScalaJSModule</a>
+              </dd>
+              <dt class="body-small">
+               Source
+              </dt>
+              <dd class="body-medium">
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/scalajslib/src/mill/scalajslib/ScalaJSModule.scala" target="_blank">ScalaJSModule.scala</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scalaJSUseWebAssembly-0" data-f-inherited="ScalaJSModule">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="TestScalaJSModule.html#scalaJSUseWebAssembly-0" t="n" class="documentableName ">scalaJSUseWebAssembly</a>: <a href="../api/Task$$Simple.html" t="t">Simple</a>[<span data-unresolved-link="" t="t">Boolean</span>]
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Specifies whether to use the WebAssembly backend. Requires Scala.js &gt;= 1.17.0. When using this setting, the following properties must also hold:</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Specifies whether to use the WebAssembly backend. Requires Scala.js &gt;= 1.17.0. When using this setting, the following properties must also hold:</p>
+              <ul>
+               <li><code>moduleKind = ModuleKind.ESModule</code></li>
+               <li><code>moduleSplitStyle = ModuleSplitStyle.FewestModules</code></li>
+              </ul>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>Currently, the WebAssembly backend silently ignores <code>@JSExport</code> and <code>@JSExportAll</code> annotations. This behavior may change in the future, either by making them warnings or errors, or by adding support for them. All other language features are supported.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="ScalaJSModule.html#scalaJSUseWebAssembly-0">ScalaJSModule</a>
+              </dd>
+              <dt class="body-small">
+               Source
+              </dt>
+              <dd class="body-medium">
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/scalajslib/src/mill/scalajslib/ScalaJSModule.scala" target="_blank">ScalaJSModule.scala</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scalaJSUseWebAssemblyJSPI-0" data-f-inherited="ScalaJSModule">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="TestScalaJSModule.html#scalaJSUseWebAssemblyJSPI-0" t="n" class="documentableName ">scalaJSUseWebAssemblyJSPI</a>: <a href="../api/Task$$Simple.html" t="t">Simple</a>[<span data-unresolved-link="" t="t">Boolean</span>]
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Enables WebAssembly JavaScript Promise Integration (JSPI).</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Enables WebAssembly JavaScript Promise Integration (JSPI).</p>
+              <p>Requires <a href="ScalaJSModule.html#scalaJSUseWebAssembly-0">scalaJSUseWebAssembly</a> and Scala.js &gt;= 1.22.0.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="ScalaJSModule.html#scalaJSUseWebAssemblyJSPI-0">ScalaJSModule</a>
               </dd>
               <dt class="body-small">
                Source
@@ -10568,6 +10610,49 @@ node39 -> node0;
               </dt>
               <dd class="body-medium">
                <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/javalib/src/mill/javalib/JavaHomeModule.scala" target="_blank">JavaHomeModule.scala</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scalaJSExperimentalUseWebAssembly-0" data-f-inherited="ScalaJSModule">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="TestScalaJSModule.html#scalaJSExperimentalUseWebAssembly-0" t="n" class="documentableName deprecated">scalaJSExperimentalUseWebAssembly</a>: <a href="../api/Task$$Simple.html" t="t">Simple</a>[<span data-unresolved-link="" t="t">Boolean</span>]
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Deprecated
+              </dt>
+              <dd class="body-medium">
+               <code>[Since version Mill 1.2.0] </code>Use scalaJSUseWebAssembly instead
+               <p>Use <a href="ScalaJSModule.html#scalaJSUseWebAssembly-0">scalaJSUseWebAssembly</a> instead</p>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="ScalaJSModule.html#scalaJSExperimentalUseWebAssembly-0">ScalaJSModule</a>
+              </dd>
+              <dt class="body-small">
+               Source
+              </dt>
+              <dd class="body-medium">
+               <a href="https://github.com/com-lihaoyi/mill/blob/main/libs/scalajslib/src/mill/scalajslib/ScalaJSModule.scala" target="_blank">ScalaJSModule.scala</a>
               </dd>
              </dl>
             </div>
