@@ -4,18 +4,18 @@ package build.python.basic
 import mill._, mill.scalalib._
 
 object `basic` extends PythonModule {
-    def pythonVersion = "3.11"
-    
-    def compile = T {
-        println("✓ Compilando módulo Python...")
-        // Aquí iría la lógica de compilación
-    }
-    
-    def run(args: String*) = T {
-        println(s"✓ Ejecutando Python con args: ${args.mkString(", ")}")
-    }
-    
-    def version = T {
-        "0.1.0"
-    }
+  def pythonVersion = "3.11"
+
+  def compile = T {
+    println("✓ Compilando módulo Python...")
+    // Aquí iría la lógica de compilación
+  }
+
+  def run(args: String*) = T {
+    println(s"✓ Ejecutando Python con args: ${args.mkString(", ")}")
+  }
+
+  def version = T {
+    "0.1.0"
+  }
 }

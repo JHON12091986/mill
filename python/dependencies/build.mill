@@ -4,18 +4,18 @@ package build.python.dependencies
 import mill._, mill.scalalib._
 
 object `dependencies` extends PythonModule {
-    def pythonVersion = "3.11"
-    
-    def pipInstall = T {
-        println("✓ Instalando dependencias con pip...")
-        // Aquí iría la lógica de pip
-    }
-    
-    def dependencies = T {
-        Map(
-            "flask" -> "2.3.2",
-            "requests" -> "2.31.0",
-            "pytest" -> "7.4.0"
-        )
-    }
+  def pythonVersion = "3.11"
+
+  def pipInstall = T {
+    println("✓ Instalando dependencias con pip...")
+    // Aquí iría la lógica de pip
+  }
+
+  def dependencies = T {
+    Map(
+      "flask" -> "2.3.2",
+      "requests" -> "2.31.0",
+      "pytest" -> "7.4.0"
+    )
+  }
 }
