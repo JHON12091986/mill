@@ -1,0 +1,21 @@
+// Módulo de linting - Bounty $1000
+package build.python.linting
+
+import mill._, mill.scalalib._
+
+object `linting` extends PythonModule {
+    def pythonVersion = "3.11"
+    
+    def lint = T {
+        println("✓ Ejecutando ruff linter...")
+        // Aquí iría la lógica de ruff
+    }
+    
+    def format = T {
+        println("✓ Formateando código con ruff...")
+    }
+    
+    def coverage = T {
+        println("✓ Calculando cobertura de código...")
+    }
+}

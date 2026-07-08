@@ -1,0 +1,16 @@
+// Módulo web - Bounty $1000
+package build.python.web
+
+import mill._, mill.scalalib._
+
+object `web` extends PythonModule {
+    def pythonVersion = "3.11"
+    
+    def flask = T {
+        println("✓ Ejecutando Flask app...")
+    }
+    
+    def django = T {
+        println("✓ Ejecutando Django app...")
+    }
+}

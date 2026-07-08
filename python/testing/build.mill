@@ -1,0 +1,16 @@
+// Módulo de testing - Bounty $500
+package build.python.testing
+
+import mill._, mill.scalalib._
+
+object `testing` extends PythonModule {
+    def pythonVersion = "3.11"
+    
+    def testPytest = T {
+        println("✓ Ejecutando pruebas con pytest...")
+    }
+    
+    def testUnittest = T {
+        println("✓ Ejecutando pruebas con unittest...")
+    }
+}

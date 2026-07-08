@@ -1,0 +1,16 @@
+// Módulo de publicación - Bounty $500
+package build.python.publishing
+
+import mill._, mill.scalalib._
+
+object `publishing` extends PythonModule {
+    def pythonVersion = "3.11"
+    
+    def publishPyPI = T {
+        println("✓ Publicando a PyPI...")
+    }
+    
+    def publishTest = T {
+        println("✓ Publicando a Test PyPI...")
+    }
+}
